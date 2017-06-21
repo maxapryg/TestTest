@@ -1,5 +1,6 @@
 package Tests;
 
+import com.mycompany.testproject.pages.MainPage;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.OperaDriverManager;
@@ -10,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.support.FindBy;
+
 
 /**
  * @author m.prytkova
@@ -18,7 +21,7 @@ public class Test1 {
 
     WebDriver driver;
     WebElement element;
-
+    MainPage mainPage;
 
     @Before
     public void setup() {
@@ -39,7 +42,7 @@ public class Test1 {
                 driver = new OperaDriver();
                 break;
             }
-            default:{
+            default: {
                 ChromeDriverManager.getInstance().setup();
                 driver = new ChromeDriver();
             }
@@ -54,16 +57,10 @@ public class Test1 {
 
     @Test
     public void openLJ() {
-        System.out.println("Starting test ");
-        driver.get("http://www.livejournal.com/");
+        mainPage = new MainPage();
+        driver.get(mainPage.url);
+        mainPage.clickTop(driver);
 
-        try {
-            element = driver.findElement(By.className("s-header-item__link--ratings"));
-            element.click();
-        } catch (Exception e) {
-        }
-        Assert.assertNotNull(element);
-        System.out.println("I cannot find " + element);
     }
 
 }

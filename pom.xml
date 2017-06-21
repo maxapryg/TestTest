@@ -36,6 +36,14 @@
             <artifactId>webdrivermanager</artifactId>
             <version>1.7.0</version>
         </dependency>
+       
     
+        <!--Библиотека для подключения jbehave, которая отвечает за запуск тестов со стори-->
+        <!-- https://mvnrepository.com/artifact/org.jbehave/jbehave-core -->
+        <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-core</artifactId>
+            <version>4.1.1</version>
+        </dependency>
     </dependencies>
 </project>
