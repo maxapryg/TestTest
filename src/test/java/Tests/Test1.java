@@ -1,18 +1,17 @@
 package Tests;
 
-import java.nio.file.Paths;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.OperaDriverManager;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 /**
- *
  * @author m.prytkova
  */
 public class Test1 {
@@ -20,15 +19,31 @@ public class Test1 {
     WebDriver driver;
     WebElement element;
 
-    public Test1() {
-        
-        String pathToGeckoDriver = Paths.get("C:\\Users\\m.prytkova\\Documents\\NetBeansProjects\\testProject\\src\\main\\chromedriver.exe").toAbsolutePath().toString();
-        System.setProperty("webdriver.chrome.driver", pathToGeckoDriver);
-        this.driver = new ChromeDriver();
-    }
 
     @Before
     public void setup() {
+        String browser = "chrome";
+        switch (browser.toLowerCase()) {
+            case "chrome": {
+                ChromeDriverManager.getInstance().setup();
+                driver = new ChromeDriver();
+                break;
+            }
+            case "firefox": {
+                FirefoxDriverManager.getInstance().setup();
+                driver = new FirefoxDriver();
+                break;
+            }
+            case "opera": {
+                OperaDriverManager.getInstance().setup();
+                driver = new OperaDriver();
+                break;
+            }
+            default:{
+                ChromeDriverManager.getInstance().setup();
+                driver = new ChromeDriver();
+            }
+        }
         driver.manage().window().maximize();
     }
 

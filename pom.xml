@@ -13,26 +13,14 @@
     </properties>
     
     <dependencies>
-        
+        <!--Билд вебрайвера. Ничего более для драйвера не требуется-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.4.0</version>
         </dependency>
-        
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        
-        
+
+        <!--Билд junit. Необходим для запуска тестов-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -41,6 +29,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--Библиотека для переключения драйверов без необходимости прописывать System.setProperty-->
+        <!--Полная информация по использованию https://github.com/bonigarcia/webdrivermanager-->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>1.7.0</version>
+        </dependency>
     
     </dependencies>
 </project>
