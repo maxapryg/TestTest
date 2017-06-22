@@ -4,25 +4,24 @@ import com.mycompany.testproject.pages.MainPage;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.OperaDriverManager;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.junit.*;
-import org.openqa.selenium.By;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Link;
 
 /**
  * @author m.prytkova
  */
+
+@RunWith(SerenityRunner.class) //Обязательная аннотация, говорящая о том, что необходимо запустить тест с Serenity
 public class Test1 {
 
     WebDriver driver;
-    WebElement element;
     MainPage mainPage;
 
     @Before
