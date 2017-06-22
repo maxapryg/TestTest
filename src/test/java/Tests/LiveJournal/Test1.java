@@ -1,5 +1,6 @@
-package Tests;
+package Tests.LiveJournal;
 
+import com.mycompany.testproject.CoreTest;
 import com.mycompany.testproject.pages.MainPage;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
@@ -7,22 +8,18 @@ import io.github.bonigarcia.wdm.OperaDriverManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.*;
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Link;
 
 /**
  * @author m.prytkova
  */
-public class Test1 {
+public class Test1 extends CoreTest{
 
     WebDriver driver;
-    WebElement element;
     MainPage mainPage;
 
     @Before
@@ -61,8 +58,9 @@ public class Test1 {
     public void openLJ() {
         mainPage = new MainPage(driver);
         driver.get(mainPage.url);
-        mainPage.clickTop();
-
+        mainPage.clickTop().openTopSettings();
+        
+       // this.startScript(driver, "jQuery('.b-mainpage-intro-settings-icon').click()");
     }
 
 }
