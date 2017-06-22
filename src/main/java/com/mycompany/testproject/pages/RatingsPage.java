@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
  *
  * @author m.prytkova
  */
+
 public class RatingsPage extends CoreTest {
 
     private final WebDriver driver;
