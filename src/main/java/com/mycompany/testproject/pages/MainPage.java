@@ -18,10 +18,11 @@ import org.openqa.selenium.WebDriver;
  */
 public class MainPage {
 
-    By top = By.className("s-header-item__link--ratings");
-
     private final WebDriver driver;
+
     public String url = "http://www.livejournal.com";
+
+    By top = By.className("s-header-item__link--ratings");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
