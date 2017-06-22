@@ -1,14 +1,14 @@
-package Tests;
+package Tests.LiveJournal;
 
+import com.mycompany.testproject.CoreTest;
 import com.mycompany.testproject.pages.MainPage;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.OperaDriverManager;
-import net.serenitybdd.junit.runners.SerenityRunner;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.junit.*;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,9 +17,7 @@ import org.openqa.selenium.opera.OperaDriver;
 /**
  * @author m.prytkova
  */
-
-@RunWith(SerenityRunner.class) //Обязательная аннотация, говорящая о том, что необходимо запустить тест с Serenity
-public class Test1 {
+public class Test1 extends CoreTest{
 
     WebDriver driver;
     MainPage mainPage;
@@ -60,8 +58,9 @@ public class Test1 {
     public void openLJ() {
         mainPage = new MainPage(driver);
         driver.get(mainPage.url);
-        mainPage.clickTop();
-
+        mainPage.clickTop().openTopSettings();
+        
+       // this.startScript(driver, "jQuery('.b-mainpage-intro-settings-icon').click()");
     }
 
 }
