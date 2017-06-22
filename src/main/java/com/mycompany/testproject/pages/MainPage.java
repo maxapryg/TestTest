@@ -12,16 +12,25 @@ package com.mycompany.testproject.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-
 /**
  *
  * @author m.prytkova
  */
 public class MainPage {
 
+    By top = By.className("s-header-item__link--ratings");
+
+    private final WebDriver driver;
     public String url = "http://www.livejournal.com";
 
-    public void clickTop(final WebDriver driver) {
-        driver.findElement(By.cssSelector(".s-header-item__link.s-header-item__link--ratings")).click();
+    public MainPage(WebDriver driver) {
+        this.driver = driver;
+
     }
+
+    public MainPage clickTop() {
+        driver.findElement(top).click();
+        return this;
+    }
+
 }
