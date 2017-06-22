@@ -5,10 +5,12 @@ import com.mycompany.testproject.pages.MainPage;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.OperaDriverManager;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.junit.*;
-import org.openqa.selenium.JavascriptExecutor;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import org.jbehave.core.annotations.Given;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,7 +18,7 @@ import org.openqa.selenium.opera.OperaDriver;
 
 /**
  * @author m.prytkova
- */
+ */@RunWith(SerenityRunner.class)
 public class Test1 extends CoreTest{
 
     WebDriver driver;
@@ -54,11 +56,11 @@ public class Test1 extends CoreTest{
         driver.quit();
     }
 
-    @Test
+    @Given("OLOLO")
     public void openLJ() {
         mainPage = new MainPage(driver);
         driver.get(mainPage.url);
-        mainPage.clickTop().openTopSettings();
+        mainPage.clickTop();//.openTopSettings();
         
        // this.startScript(driver, "jQuery('.b-mainpage-intro-settings-icon').click()");
     }
