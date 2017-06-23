@@ -1,10 +1,12 @@
 package Tests.LiveJournal;
 
+import com.mycompany.testproject.CoreTest;
 import com.mycompany.testproject.pages.MainPage;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.OperaDriverManager;
 import net.serenitybdd.junit.runners.SerenityRunner;
+import org.jbehave.core.annotations.Given;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,9 +18,8 @@ import org.openqa.selenium.opera.OperaDriver;
 
 /**
  * @author m.prytkova
- */
-@RunWith(SerenityRunner.class)//Обязателная аннотация для запуска теста с Serenity
-public class Test1 {
+ */@RunWith(SerenityRunner.class)
+public class Test1 extends CoreTest{
 
     WebDriver driver;
     MainPage mainPage;
@@ -55,12 +56,13 @@ public class Test1 {
         driver.quit();
     }
 
-    @Test
+    @Given("OLOLO")
     public void openLJ() {
         mainPage = new MainPage(driver);
         driver.get(mainPage.url);
-        mainPage.clickTop();
-
+        mainPage.clickTop();//.openTopSettings();
+        
+       // this.startScript(driver, "jQuery('.b-mainpage-intro-settings-icon').click()");
     }
 
 }
