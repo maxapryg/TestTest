@@ -18,7 +18,7 @@ import org.openqa.selenium.opera.OperaDriver;
 
 /**
  * @author m.prytkova
- */@RunWith(SerenityRunner.class)
+ */@RunWith(SerenityRunner.class)//Обязательная аннотация для запуска тестов в Серенити
 public class Test1 extends CoreTest{
 
     WebDriver driver;
